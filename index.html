@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vélo-v</title>
-  </head>
-  <body></body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vélo-v</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/carousel.css" />
+    </head>
+    <body>
+        <main>
+            <div id="carousel" tabindex="0">
+                <div class="hideLeft">
+                    <img src="/assets/images/velov1.jpg" />
+                </div>
+
+                <div class="prevLeftSecond">
+                    <img src="/assets/images/velov2.jpg" />
+                </div>
+
+                <div class="prev">
+                    <img src="/assets/images/velov3.jpg" />
+                </div>
+
+                <div class="selected">
+                    <img src="/assets/images/velov4.jpg" />
+                </div>
+
+                <div class="next">
+                    <img src="/assets/images/velov5.jpg" />
+                </div>
+
+                <div class="nextRightSecond">
+                    <img src="/assets/images/velov6.jpg" />
+                </div>
+
+                <div class="hideRight">
+                    <img src="/assets/images/velov7.jpg" />
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button id="prev">Prev</button>
+                <button id="next">Next</button>
+            </div>
+        </main>
+
+        <script src="js/carousel.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 </html>

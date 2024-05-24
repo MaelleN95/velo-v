@@ -1,0 +1,15 @@
+/* style.css */
+:root {
+    --red: #f42f34;
+    --black: #212529;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    background-color: white;
+}
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
