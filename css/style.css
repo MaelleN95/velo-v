@@ -1,4 +1,5 @@
-/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
     --red: #f42f34;
     --black: #212529;
@@ -7,6 +8,11 @@ body {
     height: 100vh;
     margin: 0;
     background-color: white;
+    color: var(--black);
+    font-family: 'Raleway', sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: normal;
 }
 main {
     width: 100%;
@@ -23,4 +29,22 @@ header {
 header img {
     width: auto;
     height: 40px;
+}
+
+h2 {
+    margin: 2rem 0;
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h2::before {
+    content: '';
+    display: block;
+    width: 7rem;
+    height: 7px;
+    background-color: var(--red);
+    border-radius: 10px;
+    margin: 0 auto 1rem auto;
 }

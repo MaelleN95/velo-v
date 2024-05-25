@@ -2,8 +2,8 @@
     position: relative;
     height: 300px;
     overflow: hidden;
-    padding: 0.5rem 0;
-    margin: 0.5rem 0;
+    padding: 0.25rem 0;
+    margin: 0.25rem 0;
     border: 2px solid transparent;
 }
 
@@ -64,7 +64,8 @@
     z-index: 4;
     left: 15%;
     transform: translateY(50%) translateX(0);
-    opacity: 0.7;
+    opacity: 0.65;
+
     cursor: url(../assets/logo/arrowleft.png) 2 2, pointer;
 }
 
@@ -97,7 +98,7 @@
     z-index: 4;
     left: 85%;
     transform: translateY(50%) translateX(-100%);
-    opacity: 0.7;
+    opacity: 0.65;
     cursor: url(../assets/logo/arrowright.png) 2 2, pointer;
 }
 
