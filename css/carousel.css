@@ -2,12 +2,18 @@
     position: relative;
     height: 300px;
     overflow: hidden;
-    margin: 2rem 0;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0;
+    border: 2px solid transparent;
+}
+
+#carousel:focus-visible {
+    border-radius: 20px;
+    border: 2px solid var(--black);
 }
 
 #carousel div {
     position: absolute;
-    transition: transform 1s, left 1s, opacity 1s, z-index 0s;
     opacity: 1;
 }
 
@@ -15,7 +21,6 @@
     width: 500px;
     height: 300px;
     object-fit: cover;
-    transition: all 1s;
 }
 
 #carousel div.hideLeft {
@@ -46,6 +51,7 @@
     z-index: 5;
     left: 30%;
     transform: translateY(67px) translateX(-25%);
+    cursor: url(../assets/logo/arrowleft.png) 2 2, pointer;
 }
 
 #carousel div.prev img {
@@ -59,6 +65,7 @@
     left: 15%;
     transform: translateY(50%) translateX(0);
     opacity: 0.7;
+    cursor: url(../assets/logo/arrowleft.png) 2 2, pointer;
 }
 
 #carousel div.prevLeftSecond img {
@@ -77,6 +84,7 @@
     z-index: 5;
     left: 70%;
     transform: translateY(67px) translateX(-75%);
+    cursor: url(../assets/logo/arrowright.png) 2 2, pointer;
 }
 
 #carousel div.next img {
@@ -90,6 +98,7 @@
     left: 85%;
     transform: translateY(50%) translateX(-100%);
     opacity: 0.7;
+    cursor: url(../assets/logo/arrowright.png) 2 2, pointer;
 }
 
 #carousel div.nextRightSecond img {
@@ -101,5 +110,42 @@
 .buttons {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+}
+
+.buttons button {
+    opacity: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+    color: white;
+    font-size: 30px;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: opacity 0.1s;
+}
+
+.buttons button:hover {
+    opacity: 1;
+}
+
+.buttons button:focus-visible {
+    opacity: 1;
+    outline: var(--black) solid 3px;
+}
+
+#pause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: none;
+    color: var(--black);
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }

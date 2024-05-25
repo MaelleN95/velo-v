@@ -6,46 +6,62 @@
         <title>Vélo-v</title>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/carousel.css" />
+        <!-- icons library -->
+        <script
+            src="https://kit.fontawesome.com/42a6605488.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body>
+        <header>
+            <img src="/assets/logo/logo.png" alt="logo Vélo-v" />
+        </header>
         <main>
-            <div id="carousel" tabindex="0">
-                <div class="hideLeft">
-                    <img src="/assets/images/velov1.jpg" />
+            <section id="carousel-section">
+                <div id="carousel" tabindex="0">
+                    <div class="hideLeft">
+                        <img src="/assets/images/velov1.jpg" />
+                    </div>
+
+                    <div class="prevLeftSecond">
+                        <img src="/assets/images/velov2.jpg" />
+                    </div>
+
+                    <div class="prev">
+                        <img src="/assets/images/velov3.jpg" />
+                    </div>
+
+                    <div class="selected">
+                        <img src="/assets/images/velov4.jpg" />
+                    </div>
+
+                    <div class="next">
+                        <img src="/assets/images/velov5.jpg" />
+                    </div>
+
+                    <div class="nextRightSecond">
+                        <img src="/assets/images/velov6.jpg" />
+                    </div>
+
+                    <div class="hideRight">
+                        <img src="/assets/images/velov7.jpg" />
+                    </div>
                 </div>
 
-                <div class="prevLeftSecond">
-                    <img src="/assets/images/velov2.jpg" />
+                <div class="buttons">
+                    <button id="prev">
+                        <span class="fa-solid fa-circle-chevron-left"></span>
+                    </button>
+                    <div id="pause" class="fa-solid fa-play"></div>
+                    <button id="next">
+                        <span class="fa-solid fa-circle-chevron-right"></span>
+                    </button>
                 </div>
-
-                <div class="prev">
-                    <img src="/assets/images/velov3.jpg" />
-                </div>
-
-                <div class="selected">
-                    <img src="/assets/images/velov4.jpg" />
-                </div>
-
-                <div class="next">
-                    <img src="/assets/images/velov5.jpg" />
-                </div>
-
-                <div class="nextRightSecond">
-                    <img src="/assets/images/velov6.jpg" />
-                </div>
-
-                <div class="hideRight">
-                    <img src="/assets/images/velov7.jpg" />
-                </div>
-            </div>
-
-            <div class="buttons">
-                <button id="prev">Prev</button>
-                <button id="next">Next</button>
-            </div>
+            </section>
+            <section id="reservation-section"></section>
         </main>
 
-        <script src="js/carousel.js"></script>
+        <script type="module" src="js/carousel.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>

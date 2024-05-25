@@ -13,3 +13,14 @@ main {
     max-width: 1200px;
     margin: 0 auto;
 }
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+}
+header img {
+    width: auto;
+    height: 40px;
+}
