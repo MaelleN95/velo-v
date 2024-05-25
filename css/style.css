@@ -20,13 +20,15 @@ main {
     margin: 0 auto;
 }
 
-header {
+header,
+footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
 }
-header img {
+header img,
+footer img {
     width: auto;
     height: 40px;
 }
@@ -47,4 +49,9 @@ h2::before {
     background-color: var(--red);
     border-radius: 10px;
     margin: 0 auto 1rem auto;
+}
+
+footer {
+    background-color: var(--black);
+    margin-top: 2rem;
 }
