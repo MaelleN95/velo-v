@@ -1,4 +1,5 @@
 #map {
     height: 450px;
     width: 100%;
+    border-radius: 5px;
 }
