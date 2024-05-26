@@ -19,12 +19,14 @@
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
             crossorigin=""
         />
-        <!-- Make sure you put this AFTER Leaflet's CSS -->
-        <script
-            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""
-        ></script>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+        />
     </head>
     <body>
         <header>
@@ -84,9 +86,16 @@
             <img src="/assets/logo/whitelogo.png" alt="logo Vélo-v" />
         </footer>
 
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
         <script type="module" src="js/carousel.js"></script>
-        <script src="js/stations.js"></script>
-        <script src="js/map.js"></script>
+        <script type="module" src="js/map.js"></script>
+        <script type="module" src="js/stations.js"></script>
+
         <script src="js/script.js"></script>
     </body>
 </html>
