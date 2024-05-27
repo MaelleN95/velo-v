@@ -26,3 +26,23 @@
     font-family: 'Raleway', sans-serif;
     font-weight: medium;
 }
+
+.custom-cluster {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(21, 25, 29, 0.9);
+    color: white;
+    border-radius: 50%;
+}
+
+.custom-cluster span {
+    display: block;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+}

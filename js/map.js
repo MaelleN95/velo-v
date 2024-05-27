@@ -6,7 +6,7 @@ export let map = L.map('map', {
 // Add a tile layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
-    minZoom: 11,
+    minZoom: 10,
     attribution:
         '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
@@ -24,4 +24,13 @@ export const createBikeIcon = (bikeCount) => {
 
 export let markers = L.markerClusterGroup({
     showCoverageOnHover: false,
+    maxClusterRadius: 60,
+    iconCreateFunction: function (cluster) {
+        let count = cluster.getChildCount();
+        return L.divIcon({
+            html: `<span>${count}</span>`,
+            className: 'custom-cluster',
+            iconSize: L.point(40, 40),
+        });
+    },
 });
