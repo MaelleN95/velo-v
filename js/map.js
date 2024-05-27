@@ -4,12 +4,16 @@ export let map = L.map('map', {
 });
 
 // Add a tile layer
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    minZoom: 10,
-    attribution:
-        '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-}).addTo(map);
+L.tileLayer(
+    'https://tile.jawg.io/c0381cc7-565c-4d1c-bb02-216c20aa620b/{z}/{x}/{y}{r}.png?access-token=14SfOLkixQb5LWadOPTJTdo4bon42nl0BOzVLdBLlj9yjaRU6SWUUkkyhVGZpW8Z',
+    {
+        attribution:
+            '<a href="https://www.jawg.io?utm_medium=map&utm_source=attribution" target="_blank">&copy; Jawg</a> - <a href="https://www.openstreetmap.org?utm_medium=map-attribution&utm_source=jawg" target="_blank">&copy; OpenStreetMap</a>&nbsp;contributors',
+        minZoom: 0,
+        maxZoom: 22,
+        accessToken: '<your accessToken>',
+    }
+).addTo(map);
 
 // Icon for stations with available bikes
 export const createBikeIcon = (bikeCount) => {
@@ -24,7 +28,8 @@ export const createBikeIcon = (bikeCount) => {
 
 export let markers = L.markerClusterGroup({
     showCoverageOnHover: false,
-    maxClusterRadius: 60,
+    maxClusterRadius: 70,
+    disableClusteringAtZoom: 15,
     iconCreateFunction: function (cluster) {
         let count = cluster.getChildCount();
         return L.divIcon({

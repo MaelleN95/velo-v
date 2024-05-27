@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/carousel.css" />
         <link rel="stylesheet" href="css/map.css" />
+        <link rel="stylesheet" href="css/reservation.css" />
         <!-- icons library -->
         <script
             src="https://kit.fontawesome.com/42a6605488.js"
@@ -76,9 +77,50 @@
             </section>
             <section id="reservation-section">
                 <h2>Réservation</h2>
-                <div>
-                    <div id="map"></div>
-                    <div></div>
+                <div class="map-and-reservation">
+                    <div id="map">
+                        <div class="velov-buttons">
+                            <button id="bike-button" class="active">
+                                <span class="fa-solid fa-bicycle"></span>
+                                <span>
+                                    Vélo'v<br />
+                                    disponible(s)
+                                </span>
+                            </button>
+                            <button id="stand-button">
+                                <span class="fa-solid fa-square-parking"></span>
+                                <span>
+                                    Place(s)<br />
+                                    disponible(s)
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Station</h3>
+                        <div id="station-info">
+                            <p>Choisissez une station sur la carte</p>
+                        </div>
+                        <div id="reservation">
+                            <form>
+                                <label for="name">Nom</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                />
+                                <label for="firstname">Prénom</label>
+                                <input
+                                    type="text"
+                                    id="firstname"
+                                    name="firstname"
+                                    required
+                                />
+                                <button type="submit">Réserver</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
