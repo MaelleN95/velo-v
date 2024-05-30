@@ -78,47 +78,90 @@
             <section id="reservation-section">
                 <h2>Réservation</h2>
                 <div class="map-and-reservation">
-                    <div id="map">
-                        <div class="velov-buttons">
-                            <button id="bike-button" class="active">
-                                <span class="fa-solid fa-bicycle"></span>
-                                <span>
-                                    Vélo'v<br />
-                                    disponible(s)
-                                </span>
-                            </button>
-                            <button id="stand-button">
-                                <span class="fa-solid fa-square-parking"></span>
-                                <span>
-                                    Place(s)<br />
-                                    disponible(s)
-                                </span>
-                            </button>
+                    <div class="map-space">
+                        <div id="map">
+                            <div class="velov-buttons">
+                                <button id="bike-button" class="active">
+                                    <span class="fa-solid fa-bicycle"></span>
+                                    <span>
+                                        Vélo'v<br />
+                                        disponible(s)
+                                    </span>
+                                </button>
+                                <button id="stand-button">
+                                    <span
+                                        class="fa-solid fa-square-parking"
+                                    ></span>
+                                    <span>
+                                        Place(s)<br />
+                                        disponible(s)
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <h3>Station</h3>
-                        <div id="station-info">
-                            <p>Choisissez une station sur la carte</p>
-                        </div>
+                    <div class="station-reservation">
+                        <h3>Détails de la station</h3>
+
                         <div id="reservation">
-                            <form>
-                                <label for="name">Nom</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    required
-                                />
-                                <label for="firstname">Prénom</label>
-                                <input
-                                    type="text"
-                                    id="firstname"
-                                    name="firstname"
-                                    required
-                                />
-                                <button type="submit">Réserver</button>
-                            </form>
+                            <div id="station-info">
+                                <p>Choisissez une station sur la carte</p>
+                                <ul>
+                                    <li>
+                                        <span
+                                            class="fa-solid fa-square-parking"
+                                        ></span>
+                                        <span id="stands"></span>
+                                    </li>
+                                    <li>
+                                        <span
+                                            class="fa-solid fa-bicycle"
+                                        ></span>
+                                        <span id="bikes"></span>
+                                    </li>
+                                    <li>
+                                        <span class="fa-solid fa-bolt"></span>
+                                        <span id="e-bikes"></span>
+                                    </li>
+                                    <li id="cb">
+                                        <span
+                                            class="fa-solid fa-credit-card possible"
+                                        ></span>
+                                    </li>
+                                </ul>
+                                <button>Réverser</button>
+                            </div>
+
+                            <div id="modal">
+                                <div id="modal-content">
+                                    <button
+                                        class="fa-solid fa-xmark"
+                                        id="close"
+                                    ></button>
+                                    <h4>Réservation en cours</h4>
+                                    <form>
+                                        <label for="name"
+                                            >Nom
+                                            <input
+                                                type="text"
+                                                id="name"
+                                                name="name"
+                                                placeholder="Doe"
+                                                required
+                                        /></label>
+                                        <label for="firstname"
+                                            >Prénom
+                                            <input
+                                                type="text"
+                                                id="firstname"
+                                                name="firstname"
+                                                placeholder="John"
+                                                required
+                                        /></label>
+                                        <button type="submit">Réserver</button>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

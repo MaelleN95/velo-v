@@ -1,0 +1,154 @@
+.map-and-reservation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.map-space {
+    width: 69%;
+}
+
+.station-reservation {
+    position: relative;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid var(--black);
+}
+
+.station-reservation h3 {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    transform: translate(15px, -50%);
+    left: 0;
+    background-color: white;
+    padding: 5px;
+}
+
+#station-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#station-info p {
+    padding: 20px 10px;
+    margin: 0;
+    font-weight: bold;
+}
+
+#station-info ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+#station-info li {
+    padding: 10px 0;
+}
+
+#station-info .fa-solid {
+    font-size: 27px;
+    display: flex;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+#reservation {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    height: 100%;
+}
+
+.station-reservation button {
+    background-color: var(--red);
+    color: white;
+    font-size: 17px;
+    border-radius: 50px;
+    border: 0;
+    width: 60%;
+    max-width: 166px;
+    min-width: 110px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+
+.station-reservation button:hover {
+    background-color: var(--black-red);
+}
+.station-reservation button:active {
+    background-color: #b32328;
+}
+
+/* modal */
+
+#modal {
+    display: block;
+    position: fixed;
+    z-index: 1001; /* Because the leaflet's map has 1000 by default */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-content {
+    overflow: hidden;
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--red);
+    border: 0;
+    width: auto;
+    min-width: auto;
+    transition: rotate 0.2s;
+}
+
+#close:hover {
+    rotate: 90deg;
+}
+
+#reservation form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+}
+
+#reservation form label {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+#reservation form input {
+    padding: 5px;
+    font-size: 17px;
+    margin: 3px 0;
+}

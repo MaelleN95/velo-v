@@ -2,6 +2,7 @@
 
 :root {
     --red: #f42f34;
+    --black-red: #ce282e;
     --black: #212529;
 }
 body {
@@ -33,7 +34,8 @@ footer img {
     height: 40px;
 }
 
-h2 {
+h2,
+h4 {
     margin: 2rem 0;
     font-size: 1.8rem;
     text-align: center;
@@ -41,7 +43,8 @@ h2 {
     font-weight: 600;
 }
 
-h2::before {
+h2::before,
+h4::before {
     content: '';
     display: block;
     width: 7rem;
@@ -49,6 +52,17 @@ h2::before {
     background-color: var(--red);
     border-radius: 10px;
     margin: 0 auto 1rem auto;
+}
+
+h4 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+}
+
+h4::before {
+    width: 5rem;
+    height: 5px;
+    margin: 0 auto 0.5rem auto;
 }
 
 footer {
