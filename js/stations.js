@@ -2,69 +2,77 @@ const API_KEY = '81505713ce0752cbd057fae3543f60cac9389ab8';
 
 import { createBikeIcon, map, markers } from './map.js';
 
+// Fetch station data from the JCDecaux API
 fetch(
   `https://api.jcdecaux.com/vls/v1/stations?contract=Lyon&apiKey=${API_KEY}`
 )
   .then((response) => {
+    // Check if the response is okay (status in the range 200-299)
     if (!response.ok) {
-      throw new Error('Erreur de réseau');
+      throw new Error('Network error');
     }
-    return response.json();
+    return response.json(); // Parse JSON from the response
   })
   .then((datas) => {
-    verifyUserChoice(datas);
-    // Store the data in the session storage
+    verifyUserChoice(datas); // Process the data based on the user's choice
+    // Store the fetched station data in session storage
     sessionStorage.setItem('stationsData', JSON.stringify(datas));
   })
   .catch((error) => {
-    console.error("Une erreur s'est produite:", error.message);
+    console.error('An error occurred:', error.message); // Log any errors to the console
   });
 
-// Buttons to switch between available bikes and available stands
+// Buttons to toggle between available bikes and available stands
 const bikeButton = document.getElementById('bike-button');
 const standButton = document.getElementById('stand-button');
 
-// Event listeners for the buttons
+// Add event listener for the bike button
 bikeButton.addEventListener('click', () => {
   const storedStations = JSON.parse(sessionStorage.getItem('stationsData'));
-  bikeButton.classList.add('active');
-  standButton.classList.remove('active');
-  verifyUserChoice(storedStations);
+  bikeButton.classList.add('active'); // Highlight bike button
+  standButton.classList.remove('active'); // Remove highlight from stand button
+  verifyUserChoice(storedStations); // Update markers based on bike availability
 });
 
+// Add event listener for the stand button
 standButton.addEventListener('click', () => {
   const storedStations = JSON.parse(sessionStorage.getItem('stationsData'));
-  bikeButton.classList.remove('active');
-  standButton.classList.add('active');
-  verifyUserChoice(storedStations);
+  bikeButton.classList.remove('active'); // Remove highlight from bike button
+  standButton.classList.add('active'); // Highlight stand button
+  verifyUserChoice(storedStations); // Update markers based on stand availability
 });
 
-// Function to verify the user's choice
+// Function to verify the user's choice and update markers accordingly
 const verifyUserChoice = (stations) => {
   if (bikeButton.classList.contains('active')) {
-    createMarkers(stations, 'available_bikes');
+    createMarkers(stations, 'available_bikes'); // Show available bikes
   } else if (standButton.classList.contains('active')) {
-    createMarkers(stations, 'available_bike_stands');
+    createMarkers(stations, 'available_bike_stands'); // Show available stands
   }
 };
 
-export let selectedStation = null;
-const openModalBtn = document.getElementById('openModal');
+export let selectedStation = null; // Variable to hold the currently selected station
+const openModalBtn = document.getElementById('openModal'); // Button to open the modal
 
-// Function to create markers on the map according to the user's choice
+// Function to create markers on the map based on the user's choice
 const createMarkers = (stations, userChoice) => {
-  markers.clearLayers();
+  markers.clearLayers(); // Clear existing markers
 
   stations.forEach((station) => {
-    // Create a marker for each station and add it to the map
+    // Create a marker for each station and set its icon
     let marker = L.marker([station.position.lat, station.position.lng], {
       icon: createBikeIcon(station[userChoice]),
     });
     // Add click event listener to the marker
     marker.on('click', () => {
       selectedStation = station; // Store the selected station
-      updateStationInfo(selectedStation);
-      openModalBtn.disabled = false;
+      updateStationInfo(selectedStation); // Update station info display
+      // Enable or disable the modal button based on bike availability
+      if (selectedStation.available_bikes > 0) {
+        openModalBtn.disabled = false;
+      } else {
+        openModalBtn.disabled = true;
+      }
     });
 
     // Add the marker to the cluster group
@@ -74,13 +82,14 @@ const createMarkers = (stations, userChoice) => {
   map.addLayer(markers);
 };
 
-const extractStationName = (stationName) => {
+export const extractStationName = (stationName) => {
+  // Remove the station ID prefix from the station name
   return stationName.replace(/^[0-9]{4,5} - /, '');
 };
 
 /**
- * Update the station information.
- * @param {Object} station  The selected station.
+ * Update the displayed information for the selected station.
+ * @param {Object} station  The selected station object.
  */
 const updateStationInfo = (station) => {
   const nameStation = document.getElementById('name-station');
@@ -90,9 +99,11 @@ const updateStationInfo = (station) => {
   const creditCard = document.querySelector('.fa-credit-card');
 
   if (selectedStation) {
+    // Extract and display the station name
     const stationName = extractStationName(selectedStation.name);
     nameStation.textContent = `Nom : ${stationName}`;
 
+    // Show or hide the address based on its availability
     if (station.address === '') {
       addressStation.style.display = 'none';
     } else {
@@ -100,17 +111,20 @@ const updateStationInfo = (station) => {
       addressStation.textContent = `Adresse : ${station.address}`;
     }
 
+    // Display the number of available stands and bikes
     stands.textContent = station.available_bike_stands;
     bikes.textContent = station.available_bikes;
 
+    // Update credit card icon based on payment availability
     if (station.banking) {
       creditCard.style.color = 'green';
-      creditCard.title = 'Paiement par carte bancaire disponible';
+      creditCard.title = 'Carte bancaire acceptée';
     } else {
       creditCard.style.color = 'var(--red)';
-      creditCard.title = 'Paiement par carte bancaire indisponible';
+      creditCard.title = 'Carte bancaire non acceptée';
     }
   } else {
+    // Reset station information display if no station is selected
     nameStation.textContent = 'Choisissez une station sur la carte';
     addressStation.textContent = '';
     stands.textContent = '';

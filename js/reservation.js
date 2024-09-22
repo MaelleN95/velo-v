@@ -1,5 +1,5 @@
 import { hasSignature } from './signature.js';
-import { selectedStation } from './stations.js';
+import { selectedStation, extractStationName } from './stations.js';
 
 const modal = document.getElementById('modal');
 const closeModalBtn = document.getElementById('close');
@@ -32,6 +32,32 @@ openModalBtn.addEventListener('click', () => {
 closeModalBtn.addEventListener('click', () => {
   closeModal();
 });
+
+// Fonction pour formater le temps en minutes et secondes
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(
+    remainingSeconds
+  ).padStart(2, '0')}`;
+}
+
+// Fonction pour démarrer le compte à rebours
+function startTimer(duration, display) {
+  let timer = duration,
+    minutes,
+    seconds;
+  const interval = setInterval(() => {
+    minutes = Math.floor(timer / 60);
+    seconds = timer % 60;
+    display.textContent = `Temps restant : ${formatTime(timer)}`;
+
+    if (--timer < 0) {
+      clearInterval(interval);
+      display.textContent = 'Temps restant : 00:00';
+    }
+  }, 1000);
+}
 
 // Fonction pour valider la réservation
 const handleSubmit = (e) => {
@@ -66,7 +92,22 @@ const handleSubmit = (e) => {
     signature: canvas.toDataURL(),
   };
 
-  console.log('Réservation enregistrée:', reservationData);
+  // Gestion du timer de réservation
+
+  // Afficher la balise <p> avec la phrase
+  const reservationValidated = document.querySelector('.reservation-validated');
+  const reservationValidatedInfo = document.querySelector(
+    '.reservation-validated-info'
+  );
+  reservationValidated.style.display = 'flex';
+  const stationName = extractStationName(selectedStation.name);
+  reservationValidatedInfo.textContent = `Vélo réservé à la station ${stationName} par ${reservationData.firstname} ${reservationData.name}`;
+  // Obtenir la balise <p> pour afficher la phrase avec le timer
+  const timerMessage = document.getElementById('timer');
+
+  // Initialiser et démarrer le timer (15 minutes)
+  const fifteenMinutes = 60 * 15;
+  startTimer(fifteenMinutes, timerMessage);
 
   // close the modal
   closeModal();

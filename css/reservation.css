@@ -224,3 +224,19 @@
   min-width: auto;
   border-radius: 5px;
 }
+
+.reservation-validated {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 35px 0;
+}
+.reservation-validated p {
+  margin: 0;
+}
+#timer {
+  color: var(--black-red);
+}
