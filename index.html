@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="css/carousel.css" />
     <link rel="stylesheet" href="css/map.css" />
     <link rel="stylesheet" href="css/reservation.css" />
-    <!-- icons library -->
+    <!-- FontAwesome icons library for icons used in the project -->
     <script
       src="https://kit.fontawesome.com/42a6605488.js"
       crossorigin="anonymous"
     ></script>
-    <!-- leaflet library -->
+    <!-- Leaflet library for interactive maps -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -35,6 +35,7 @@
     </header>
     <main>
       <section id="carousel-section">
+        <!-- Carousel section with images for visual presentation -->
         <div id="carousel" tabindex="0">
           <div class="hideLeft">
             <img src="./assets/images/velov1.jpg" />
@@ -81,6 +82,7 @@
           <div class="map-space">
             <div id="map">
               <div class="velov-buttons">
+                <!-- Buttons for switching between available bikes and stands -->
                 <button id="bike-button" class="active">
                   <span class="fa-solid fa-bicycle"></span>
                   <span>
@@ -176,17 +178,18 @@
       <img src="./assets/logo/whitelogo.png" alt="logo Vélo-v" />
     </footer>
 
+    <!-- Leaflet library for interactive maps -->
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
       crossorigin=""
     ></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <!-- JavaScript modules for various functionalities -->
     <script type="module" src="js/carousel.js"></script>
     <script type="module" src="js/map.js"></script>
     <script type="module" src="js/stations.js"></script>
     <script type="module" src="js/signature.js"></script>
     <script type="module" src="js/reservation.js"></script>
-    <script src="js/script.js"></script>
   </body>
 </html>
