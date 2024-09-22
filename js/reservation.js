@@ -33,6 +33,10 @@ closeModalBtn.addEventListener('click', () => {
   closeModal();
 });
 
+modal.addEventListener('click', () => {
+  closeModal();
+});
+
 // Function to format time in minutes and seconds
 const formatTime = (seconds) => {
   const minutes = Math.floor(seconds / 60);
