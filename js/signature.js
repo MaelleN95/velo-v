@@ -32,7 +32,7 @@ const getMousePos = (canvas, e) => {
  * Clear the canvas and reset the signature status.
  * This function is triggered when the "Clear" button is clicked.
  */
-const clearCanvas = () => {
+export const clearCanvas = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   hasSignature = false;
 };

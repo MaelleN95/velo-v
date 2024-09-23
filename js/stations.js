@@ -42,7 +42,11 @@ standButton.addEventListener('click', () => {
   verifyUserChoice(storedStations); // Update markers based on stand availability
 });
 
-// Function to verify the user's choice and update markers accordingly
+/**
+ *  Function to verify the user's choice and display the corresponding markers on the map.
+ * @param {Object} stations  The station data fetched from the JCDecaux API.
+ * @returns  The markers on the map based on the user's choice.
+ */
 const verifyUserChoice = (stations) => {
   if (bikeButton.classList.contains('active')) {
     createMarkers(stations, 'available_bikes'); // Show available bikes
@@ -54,7 +58,12 @@ const verifyUserChoice = (stations) => {
 export let selectedStation = null; // Variable to hold the currently selected station
 const openModalBtn = document.getElementById('openModal'); // Button to open the modal
 
-// Function to create markers on the map based on the user's choice
+/**
+ * Function to create markers for each station on the map based on the user's choice.
+ * @param {Object} stations  The station data fetched from the JCDecaux API.
+ * @param {*} userChoice  The user's choice of available bikes or stands.
+ * @returns  The markers for each station on the map.
+ */
 const createMarkers = (stations, userChoice) => {
   markers.clearLayers(); // Clear existing markers
 
@@ -66,13 +75,10 @@ const createMarkers = (stations, userChoice) => {
     // Add click event listener to the marker
     marker.on('click', () => {
       selectedStation = station; // Store the selected station
-      updateStationInfo(selectedStation); // Update station info display
-      // Enable or disable the modal button based on bike availability
-      if (selectedStation.available_bikes > 0) {
-        openModalBtn.disabled = false;
-      } else {
-        openModalBtn.disabled = true;
-      }
+
+      // Check for previous reservation
+      previousReservation(selectedStation);
+      updateStationInfo(selectedStation); // Update the displayed station information
     });
 
     // Add the marker to the cluster group
@@ -82,6 +88,11 @@ const createMarkers = (stations, userChoice) => {
   map.addLayer(markers);
 };
 
+/**
+ *  Function to extract the station name from the station ID prefix.
+ * @param {string} stationName   The name of the station.
+ * @returns   The station name without the station ID prefix.
+ */
 export const extractStationName = (stationName) => {
   // Remove the station ID prefix from the station name
   return stationName.replace(/^[0-9]{4,5} - /, '');
@@ -138,5 +149,40 @@ const updateStationInfo = (station) => {
     stands.textContent = '';
     bikes.textContent = '';
     creditCard.style.color = 'var(--black)';
+  }
+};
+
+/**
+ * Function to check for a previous reservation and update the modal button accordingly.
+ * @param {Object} selectedStation  The selected station object.
+ */
+const previousReservation = (selectedStation) => {
+  if (localStorage.getItem('reservation')) {
+    const reservationData = JSON.parse(localStorage.getItem('reservation'));
+    const now = new Date().getTime();
+    const timeElapsed = now - reservationData.timestamp;
+    const fifteenMinutes = 60 * 15 * 1000;
+    if (timeElapsed < fifteenMinutes) {
+      openModalBtn.disabled = true;
+      openModalBtn.textContent = 'Réservation déjà en cours';
+    } else {
+      openModalBtn.disabled = false;
+      openModalBtn.textContent = 'Réserver';
+      // Enable or disable the modal button based on bike availability
+      if (selectedStation.available_bikes > 0) {
+        openModalBtn.disabled = false;
+      } else {
+        openModalBtn.disabled = true;
+      }
+    }
+  } else {
+    openModalBtn.disabled = false;
+    openModalBtn.textContent = 'Réserver';
+    // Enable or disable the modal button based on bike availability
+    if (selectedStation.available_bikes > 0) {
+      openModalBtn.disabled = false;
+    } else {
+      openModalBtn.disabled = true;
+    }
   }
 };

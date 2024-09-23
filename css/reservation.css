@@ -110,6 +110,12 @@
   align-items: center;
 }
 
+.station-reservation button:has(.fa-solid) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* modal */
 
 #modal {
@@ -164,6 +170,28 @@
 
 #close:hover {
   rotate: 90deg;
+}
+
+#info-previous-reservation {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 35px 0;
+}
+
+#info-previous-reservation > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+#info-previous-reservation button {
+  margin: 0 10px;
 }
 
 #reservation form {
