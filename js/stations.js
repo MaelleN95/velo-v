@@ -171,8 +171,10 @@ const previousReservation = (selectedStation) => {
       // Enable or disable the modal button based on bike availability
       if (selectedStation.available_bikes > 0) {
         openModalBtn.disabled = false;
+        openModalBtn.textContent = 'Réserver';
       } else {
         openModalBtn.disabled = true;
+        openModalBtn.textContent = 'Aucun vélo disponible';
       }
     }
   } else {
@@ -181,8 +183,10 @@ const previousReservation = (selectedStation) => {
     // Enable or disable the modal button based on bike availability
     if (selectedStation.available_bikes > 0) {
       openModalBtn.disabled = false;
+      openModalBtn.textContent = 'Réserver';
     } else {
       openModalBtn.disabled = true;
+      openModalBtn.textContent = 'Aucun vélo disponible';
     }
   }
 };
