@@ -74,6 +74,7 @@ Aucune dépendance supplémentaire n'est requise pour ce projet, il peut être e
 | **Diaporama interactif**          | Le diaporama est réalisé en JavaScript avec des transitions animées. La logique du diaporama doit être écrite par le développeur. Il affiche plusieurs diapositives qui peuvent contenir des images, du texte ou des informations relatives aux stations. Le diaporama passe automatiquement d'une diapositive à l'autre après un délai configurable. L'utilisateur peut également utiliser les contrôles de navigation manuelle ("Précédent", "Pause", "Suivant"). |
 | **Débogage**                      | Le code doit être proprement commenté, structuré et compatible avec les outils de développement pour faciliter le débogage. |
 | **Contrôle des erreurs**          | Gestion des erreurs côté client |
+| **Stockage des données de réservation**          | Les données de réservation sont stockées dans le `localStorage` du navigateur pour maintenir l'état de la réservation même après un rafraîchissement de la page. Ce stockage permet de conserver les informations temporairement et de restaurer la réservation en cours. |
 
 ## Screenshots
 ### Accueil
