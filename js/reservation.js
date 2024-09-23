@@ -2,6 +2,7 @@ import { hasSignature } from './signature.js';
 import { selectedStation, extractStationName } from './stations.js';
 
 const modal = document.getElementById('modal');
+const modalBackground = document.getElementById('modal-background');
 const closeModalBtn = document.getElementById('close');
 const openModalBtn = document.getElementById('openModal');
 const form = document.getElementById('reservation-form');
@@ -33,7 +34,7 @@ closeModalBtn.addEventListener('click', () => {
   closeModal();
 });
 
-modal.addEventListener('click', () => {
+modalBackground.addEventListener('click', () => {
   closeModal();
 });
 
@@ -99,6 +100,9 @@ const handleSubmit = (e) => {
     name,
     firstname,
   };
+
+  // Store the reservation data in local storage
+  localStorage.setItem('reservation', JSON.stringify(reservationData));
 
   // Handle reservation timer display
 
