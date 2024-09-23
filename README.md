@@ -45,7 +45,7 @@ Aucune dépendance supplémentaire n'est requise pour ce projet, il peut être e
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript ES6
 - [Leaflet](https://leafletjs.com/) (pour la carte interactive)
 - [API JCDecaux](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted) (pour récupérer les données des stations de vélos)
 
@@ -64,6 +64,7 @@ Aucune dépendance supplémentaire n'est requise pour ce projet, il peut être e
 
 | Critères techniques                      | Détails                                                     |
 |----------------------------|-----------------------------------------------------------------------------|
+| **Maquette créée de A à Z**       | J'ai conçu une [maquette](https://www.figma.com/design/Z9eo7pvhjyPnaGVHtXH7PB/v%C3%A9lo'v?node-id=0-1&node-type=canvas&t=bR488ueKhTgh4L6U-0) complète de l'application, en me basant sur les besoins fonctionnels et les bonnes pratiques UX/UI. Cette maquette a ensuite été intégrée entièrement avec du HTML, CSS et JavaScript, sans l'utilisation de frameworks externes. |
 | **JavaScript ES6**                | Utilisation de classes, des promesses et des modules JavaScript pour structurer le code. |
 | **[API JCDecaux](https://developer.jcdecaux.com/#/opendata/vls?page=getstarted)**                  | Récupération des données des stations de vélos via une API publique JCDecaux. L'API retourne en temps réel les informations concernant chaque station (nom, vélos disponibles, places disponibles, statut de la station). |
 | **Carte interactive ([Leaflet.js](https://leafletjs.com/))**| Utilisation de la bibliothèque Leaflet pour afficher les stations de vélos sur une carte interactive. Leaflet gère les interactions avec la carte (zoom, déplacement, affichage des marqueurs). |
@@ -72,11 +73,36 @@ Aucune dépendance supplémentaire n'est requise pour ce projet, il peut être e
 | **Manipulation du DOM**           | Le JavaScript est utilisé pour manipuler dynamiquement le DOM, mettre à jour les éléments de la page en fonction des actions de l'utilisateur et des données API. |
 | **Diaporama interactif**          | Le diaporama est réalisé en JavaScript avec des transitions animées. La logique du diaporama doit être écrite par le développeur. Il affiche plusieurs diapositives qui peuvent contenir des images, du texte ou des informations relatives aux stations. Le diaporama passe automatiquement d'une diapositive à l'autre après un délai configurable. L'utilisateur peut également utiliser les contrôles de navigation manuelle ("Précédent", "Pause", "Suivant"). |
 | **Débogage**                      | Le code doit être proprement commenté, structuré et compatible avec les outils de développement pour faciliter le débogage. |
-| **Contrôle des erreurs**          | Gestion des erreurs côté client (par exemple, si l'API ne répond pas ou si une réservation échoue, un message d'erreur est affiché). |
+| **Contrôle des erreurs**          | Gestion des erreurs côté client |
 
 ## Screenshots
+### Accueil
+|![accueil](https://github.com/user-attachments/assets/6885fc71-78bd-47d7-9e07-73503c597073)|
+|-|
 
-*A venir...*
+### Station sélectionnée
+|![station-selectionnee](https://github.com/user-attachments/assets/088af657-7be5-4fe7-901b-9c877c3dc01e)|
+|-|
+
+### Modale de réservation (avec demande de pré-remplissage des anciennes données si présentes)
+|![modale1](https://github.com/user-attachments/assets/bea15616-c263-4b41-80b8-5fbbc60cfbee)|
+|-|
+
+### Modale remplie
+|![modaleRemplie](https://github.com/user-attachments/assets/568210cc-5602-40c9-97e0-b33a5a379440)|
+|-|
+
+### Réservation validée
+|![reservation-validée](https://github.com/user-attachments/assets/9865b9f4-4f9c-4d3d-ad84-f72545eb5666)|
+|-|
+
+### Lorsqu'une réservation est déjà en cours sur ce PC
+|![reservation-deja-encours](https://github.com/user-attachments/assets/82e750ca-bf2d-48ba-b554-30b59e220f57)|
+|-|
+
+### Lorsqu'une station sélectionnée n'a aucun vélo disponible
+|![aucun-velo-dispo](https://github.com/user-attachments/assets/9ef69fd5-f090-4099-b376-5b50e8a9c97c)|
+|-|
 
 ## Auteur
 
