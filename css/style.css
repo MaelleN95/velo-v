@@ -1,71 +1,85 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --red: #f42f34;
-    --black-red: #ce282e;
-    --black: #212529;
+  --red: #f42f34;
+  --black-red: #ce282e;
+  --black: #212529;
 }
 body {
-    height: 100vh;
-    margin: 0;
-    background-color: white;
-    color: var(--black);
-    font-family: 'Raleway', sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: normal;
+  height: 100vh;
+  margin: 0;
+  background-color: white;
+  color: var(--black);
+  font-family: 'Raleway', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: normal;
 }
 main {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header,
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
 }
 header img,
 footer img {
-    width: auto;
-    height: 40px;
+  width: auto;
+  height: 40px;
+}
+
+footer {
+  color: white;
+  text-align: end;
+}
+
+footer a {
+  color: white;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #e69194;
 }
 
 h2,
 h4 {
-    margin: 2rem 0;
-    font-size: 1.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 600;
+  margin: 2rem 0;
+  font-size: 1.8rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 h2::before,
 h4::before {
-    content: '';
-    display: block;
-    width: 7rem;
-    height: 7px;
-    background-color: var(--red);
-    border-radius: 10px;
-    margin: 0 auto 1rem auto;
+  content: '';
+  display: block;
+  width: 7rem;
+  height: 7px;
+  background-color: var(--red);
+  border-radius: 10px;
+  margin: 0 auto 1rem auto;
 }
 
 h4 {
-    margin: 0.5rem 0;
-    font-size: 1.4rem;
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
 }
 
 h4::before {
-    width: 5rem;
-    height: 5px;
-    margin: 0 auto 0.5rem auto;
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto 0.5rem auto;
 }
 
 footer {
-    background-color: var(--black);
-    margin-top: 2rem;
+  background-color: var(--black);
+  margin-top: 2rem;
 }

@@ -99,6 +99,14 @@ const updateStationInfo = (station) => {
   const creditCard = document.querySelector('.fa-credit-card');
 
   if (selectedStation) {
+    // Show station information if a station is selected
+    const map = document.querySelector('.map-space');
+    const stationInfo = document.querySelector('.station-reservation');
+
+    stationInfo.style.display = 'flex';
+    map.style.width = '69%';
+    stationInfo.style.width = '30%';
+
     // Extract and display the station name
     const stationName = extractStationName(selectedStation.name);
     nameStation.textContent = `Nom : ${stationName}`;

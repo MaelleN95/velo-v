@@ -5,16 +5,18 @@
 }
 
 .map-space {
-  width: 69%;
+  width: 100%;
+  transition: width 0.5s;
 }
 
 .station-reservation {
   position: relative;
-  display: flex;
-  width: 30%;
+  display: none;
+  width: 0;
   flex-direction: column;
   border-radius: 10px;
   border: 2px solid var(--black);
+  transition: all 0.5s;
 }
 
 .station-reservation h3 {
