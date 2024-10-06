@@ -30,6 +30,7 @@ L'application permet d'afficher des stations de vélos sur une carte, de consult
 1. Clonez le repository :
    ```bash
    git clone https://github.com/MaelleN95/velo-v.git
+   cd velo-v
 2. Ouvrez le fichier `index.html` dans votre navigateur.
 
 Aucune dépendance supplémentaire n'est requise pour ce projet, il peut être exécuté directement dans un navigateur.
